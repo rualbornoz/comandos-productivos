@@ -227,6 +227,10 @@ Localiza recursivamente palabra en carpeta con archivos (-r). O localiza palabra
 
 `grep -r palabra /carpeta` `history | grep palabra`
 
+Mostrar solamente la URL de todas las imágenes JPG de un archivo fuente u HTML:
+
+`grep -o -i 'https:[^>]*.jpg'`
+
 sed
 ---
 
