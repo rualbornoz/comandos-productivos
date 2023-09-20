@@ -24,35 +24,55 @@ También permite transferir archivos a otros equipos por conexión segura:
 gpg
 ---
 
-Encripta archivos con protección de contraseña (creará un nuevo archivo.gpg). Y desencripta archivos (te pedirá la contraseña del archivo):
+Encripta archivos con protección de contraseña (creará un nuevo archivo.gpg):
 
-`gpg -c --cipher-algo AES256 archivo` `gpg archivo.gpg`
+`gpg -c --cipher-algo AES256 archivo` 
+
+ Y desencripta archivos (te pedirá la contraseña del archivo):
+ 
+`gpg archivo.gpg`
 
 lancat
 ------
 
-Mandar archivos a través de la Red de Área Local ([LAN](https://web.archive.org/web/20200901184022/https://es.wikipedia.org/wiki/Red_de_%C3%A1rea_local)), fácil y automáticamente. Alguien que mande el archivo (-s). Y alguien que reciba el archivo (-r). ([Instalar y usar lancat](https://web.archive.org/web/20200901184022/https://cont3mpo.github.io/post/2015/probando-lancat.html)):
+Mandar archivos a través de la Red de Área Local ([LAN](https://web.archive.org/web/20200901184022/https://es.wikipedia.org/wiki/Red_de_%C3%A1rea_local)), fácil y automáticamente. Alguien que mande el archivo (-s):
 
-`lancat -s < archivo` `lancat -r > archivo`
+`lancat -s < archivo` 
+
+Y alguien que reciba el archivo (-r). ([Instalar y usar lancat](https://web.archive.org/web/20200901184022/https://cont3mpo.github.io/post/2015/probando-lancat.html)):
+
+`lancat -r > archivo`
 
 wget
 ----
 
-Descarga directo un archivo. O descarga el código [HTML](https://web.archive.org/web/20200901184022/https://es.wikipedia.org/wiki/HTML) del sitio y edita con [nano](https://web.archive.org/web/20200901184022/http://es.wikipedia.org/wiki/Nano_(editor_de_texto)):
+Descarga directo un archivo:
 
-`wget www.web.com/archivo` `wget www.web.com ; nano *.html`
+`wget www.web.com/archivo` 
 
-Descarga un sitio completo recursivamente (-r). O descarga un sitio aislado con todos sus elementos (-p):
+O descarga el código [HTML](https://web.archive.org/web/20200901184022/https://es.wikipedia.org/wiki/HTML) del sitio y edita con [nano](https://web.archive.org/web/20200901184022/http://es.wikipedia.org/wiki/Nano_(editor_de_texto)):
 
-`wget -r www.web.com` `wget -p www.web.com/sitio-aislado.html`
+`wget www.web.com ; nano *.html`
+
+Descarga un sitio completo recursivamente (-r):
+
+`wget -r www.web.com` 
+
+O descarga un sitio aislado con todos sus elementos (-p):
+
+`wget -p www.web.com/sitio-aislado.html`
 
 Descarga todos los enlaces de archivos dentro de un directorio web:
 
 `wget -m -np www.web.com/archivos`
 
-Descarga masivamente archivos con números en secuencia con { }, o con letras:
+Descarga masivamente archivos con números en secuencia con { }:
 
-`wget www.web.com/archivo{01..50}.jpg` `wget www.web.com/archivo{a..z}.jpg`
+`wget www.web.com/archivo{01..50}.jpg`
+
+O con letras:
+ 
+`wget www.web.com/archivo{a..z}.jpg`
 
 curl
 ----
@@ -61,13 +81,21 @@ Se puede subir cualquier tipo de archivo a [transfer.sh](https://web.archive.org
 
 `curl -T archivo https://transfer.sh`
 
-Bajar archivos con curl. O descarga el código HTML de un sitio:
+Bajar archivos con curl:
 
-`curl -O www.web.com/archivo` `curl www.web.com > sitio.html`
+`curl -O www.web.com/archivo`
 
-Descargar masivamente con números en secuencia también se puede con \[ \], incluso con letras:
+O descarga el código HTML de un sitio:
 
-`curl -O www.web.com/archivo[01-50].jpg` `curl -O www.web.com/archivo[a-z].jpg`
+`curl www.web.com > sitio.html`
+
+Descargar masivamente con números en secuencia también se puede con \[ \]:
+
+`curl -O www.web.com/archivo[01-50].jpg`
+
+O incluso con letras:
+
+`curl -O www.web.com/archivo[a-z].jpg`
 
 Recomiendo ver: [curl vs wget](https://web.archive.org/web/20200901184022/http://daniel.haxx.se/docs/curl-vs-wget.html), y la [tabla comparativa](https://web.archive.org/web/20200901184022/http://curl.haxx.se/docs/comparison-table.html) con otras herramientas que descargan archivos.
 
@@ -78,9 +106,17 @@ Sube archivos de texto directo a [Pastebin](https://web.archive.org/web/20200901
 
 `pastebinit -i archivo`
 
-Capturar pantalla en PNG con retardo de 5 segundos (-d). O seleccionar áreas de la pantalla con puntero (-s). Y capturar ventana en uso con retardo de 5 segundos (-s -b -d):
+Capturar pantalla en PNG con retardo de 5 segundos (-d):
 
-`scrot -d 5` `scrot -s` `scrot -s -b -d 5`
+`scrot -d 5` 
+
+ O seleccionar áreas de la pantalla con puntero (-s):
+ 
+`scrot -s` 
+
+Y capturar ventana en uso con retardo de 5 segundos (-s -b -d):
+
+`scrot -s -b -d 5`
 
 Con recordmydesktop se puede capturar el escritorio con codec de video [Theora](https://web.archive.org/web/20200901184022/https://es.wikipedia.org/wiki/Theora) (Detener: Ctrl + C):
 
@@ -100,9 +136,17 @@ Lo uso para grabar [imágenes ISO](https://web.archive.org/web/20200901184022/ht
 
 `sudo dd if=imagen.iso of=/dev/sdb bs=4M`
 
-Para formatear el pendrive en el [sistema de archivos](https://web.archive.org/web/20200901184022/https://es.wikipedia.org/wiki/Sistema_de_archivos) [Ext4](https://web.archive.org/web/20200901184022/https://es.wikipedia.org/wiki/Ext4) (Linux), o [NTFS](https://web.archive.org/web/20200901184022/https://es.wikipedia.org/wiki/NTFS) (Windows + Compatibilidad con otros), o [FAT32](https://web.archive.org/web/20200901184022/https://es.wikipedia.org/wiki/Tabla_de_asignaci%C3%B3n_de_archivos#FAT32) que es compatible con Macs:
+Para formatear el pendrive en el [sistema de archivos](https://web.archive.org/web/20200901184022/https://es.wikipedia.org/wiki/Sistema_de_archivos) [Ext4](https://web.archive.org/web/20200901184022/https://es.wikipedia.org/wiki/Ext4) (Linux):
 
-`sudo mkfs.ext4 /dev/sdb` `sudo mkfs.ntfs /dev/sdb` `sudo mkfs.vfat -F 32 /dev/sdb`
+`sudo mkfs.ext4 /dev/sdb`
+
+O [NTFS](https://web.archive.org/web/20200901184022/https://es.wikipedia.org/wiki/NTFS) (Windows + Compatibilidad con otros):
+
+`sudo mkfs.ntfs /dev/sdb` 
+
+O [FAT32](https://web.archive.org/web/20200901184022/https://es.wikipedia.org/wiki/Tabla_de_asignaci%C3%B3n_de_archivos#FAT32) que es compatible con Macs:
+
+`sudo mkfs.vfat -F 32 /dev/sdb`
 
 fdisk
 -----
@@ -118,17 +162,25 @@ Para empezar a particionar indica el lugar, por ejemplo /dev/sda, y las letras d
 ffmpeg, lame, mediainfo
 -----------------------
 
-[FFmpeg](https://web.archive.org/web/20200901184022/http://ffmpeg.org/) encodea cualquier tipo de video/audio ([guía extensa](https://web.archive.org/web/20200901184022/https://cont3mpo.github.io/post/2013/encodear-con-ffmpeg.html)). O capturar video streaming:
+[FFmpeg](https://web.archive.org/web/20200901184022/http://ffmpeg.org/) encodea cualquier tipo de video/audio ([guía extensa](https://web.archive.org/web/20200901184022/https://cont3mpo.github.io/post/2013/encodear-con-ffmpeg.html)):
 
-`ffmpeg -i entrada.mkv -c:v libx264 -crf 18 -c:a flac salida.mkv` `ffmpeg -i http://url-streaming -c:v copy -c:a copy video.mkv`
+`ffmpeg -i entrada.mkv -c:v libx264 -crf 18 -c:a flac salida.mkv` 
+
+ O capturar video streaming:
+ 
+`ffmpeg -i http://url-streaming -c:v copy -c:a copy video.mkv`
 
 Grabar el escritorio en video de alta calidad (salir: Q):
 
 `ffmpeg -f x11grab -s 1440x900 -framerate 30 -i :0.0 -c:v libx264 -qp 0 -preset ultrafast salida.mkv`
 
-Grabar audio desde el micrófono del notebook. O grabar video+audio desde la cámara del notebook (salir: Ctrl + C). Vean en alsamixer si tienen el micrófono en captura al 100 (Cambiar a captura alsamixer: TAB):
+Grabar audio desde el micrófono del notebook:
 
-`ffmpeg -f alsa -i pulse salida.wav` `ffmpeg -f video4linux2 -i /dev/video0 -f alsa -i pulse salida.mkv`
+`ffmpeg -f alsa -i pulse salida.wav` 
+
+O grabar video+audio desde la cámara del notebook (salir: Ctrl + C). Vean en alsamixer si tienen el micrófono en captura al 100 (Cambiar a captura alsamixer: TAB):
+
+`ffmpeg -f video4linux2 -i /dev/video0 -f alsa -i pulse salida.mkv`
 
 Encodea cualquier audio a MP3 con [VBR](https://web.archive.org/web/20200901184022/https://es.wikipedia.org/wiki/Tasa_de_bits_variable) de alta calidad ([guía extensa de encodear audio](https://web.archive.org/web/20200901184022/https://cont3mpo.github.io/post/2009/encodear-audio-en-linux.html)):
 
@@ -141,31 +193,59 @@ Para ver toda la información de un archivo de medios imagen/video/audio:
 youtube-dl, cclive, mpv
 -----------------------
 
-Descargar videos de Youtube/Vimeo/Dailymotion con [youtube-dl](https://web.archive.org/web/20200901184022/http://rg3.github.io/youtube-dl/) (instala python-pip, y luego: sudo pip install youtube\_dl). O con cclive (solo Youtube):
+Descargar videos de Youtube/Vimeo/Dailymotion con [youtube-dl](https://web.archive.org/web/20200901184022/http://rg3.github.io/youtube-dl/) (instala python-pip, y luego: sudo pip install youtube\_dl):
 
-`youtube-dl http://youtube.com/asdf` `cclive http://youtube.com/asdf`
+`youtube-dl http://youtube.com/asdf` 
 
-Y ver videos desde Youtube/Vimeo/Dailymotion. O video y audio en web con el reproductor [mpv](https://web.archive.org/web/20200901184022/http://mpv.io/) ([porqué usar mpv](https://web.archive.org/web/20200901184022/https://cont3mpo.github.io/post/2013/mpv-el-sucesor-de-mplayer2.html)). También si quisiéramos escuchar solo la música de un video:
+O con cclive (solo Youtube):
 
-`mpv http://youtube.com/asdf` `mpv http://web.com/video.mp4` `mpv --no-video http://youtube.com/asdf`
+`cclive http://youtube.com/asdf`
 
-Descargar video en linea con mpv. O ver la cámara del notebook:
+Y ver videos desde Youtube/Vimeo/Dailymotion:
 
-`mpv --stream-dump=video.mkv http://web.com/video-en-linea` `mpv tv://`
+`mpv http://youtube.com/asdf` 
+
+O video y audio en web con el reproductor [mpv](https://web.archive.org/web/20200901184022/http://mpv.io/) ([porqué usar mpv](https://web.archive.org/web/20200901184022/https://cont3mpo.github.io/post/2013/mpv-el-sucesor-de-mplayer2.html)):
+
+`mpv http://web.com/video.mp4` 
+
+También si quisiéramos escuchar solo la música de un video:
+
+`mpv --no-video http://youtube.com/asdf`
+
+Descargar video en linea con mpv:
+
+`mpv --stream-dump=video.mkv http://web.com/video-en-linea` 
+
+O ver la cámara del notebook:
+
+`mpv tv://`
 
 mkvextract, mkvmerge
 --------------------
 
-Para extraer las pistas de video, audio, subtitulo de un MKV (incluido con [mkvtoolnix](https://web.archive.org/web/20200901184022/https://www.bunkus.org/videotools/mkvtoolnix/), para ver número de pista: mkvmerge -i video.mkv). Y volver a unir con mkvmerge:
+Para extraer las pistas de video, audio, subtitulo de un MKV (incluido con [mkvtoolnix](https://web.archive.org/web/20200901184022/https://www.bunkus.org/videotools/mkvtoolnix/), para ver número de pista: mkvmerge -i video.mkv):
 
-`mkvextract tracks video-audio.mkv 0:video-solo.mkv 1:audio.dts` `mkvmerge video-solo.mkv audio.dts -o unido.mkv`
+`mkvextract tracks video-audio.mkv 0:video-solo.mkv 1:audio.dts` 
+
+Y volver a unir con mkvmerge:
+
+`mkvmerge video-solo.mkv audio.dts -o unido.mkv`
 
 feh, convert
 ------------
 
-Ver imagen en web. Ver varias imágenes secuenciales en web (cambiar imagen: flechas derecha/izquierda. Pantalla completa: V). O abrir todas las imágenes del directorio actual con la imagen ajustada a la pantalla (-.):
+Ver imagen en web:
 
-`feh http://web.com/imagen.jpg` `feh http://web.com/imagen{01..50}.jpg` `feh -.`
+`feh http://web.com/imagen.jpg` 
+
+Ver varias imágenes secuenciales en web (cambiar imagen: flechas derecha/izquierda. Pantalla completa: V):
+ 
+`feh http://web.com/imagen{01..50}.jpg` 
+
+O abrir todas las imágenes del directorio actual con la imagen ajustada a la pantalla (-.):
+
+`feh -.`
 
 Redimensiona el ancho de una imagen respetando la relación de aspecto (convert viene incluido con [imagemagick](https://web.archive.org/web/20200901184022/http://www.imagemagick.org/)):
 
@@ -174,9 +254,13 @@ Redimensiona el ancho de una imagen respetando la relación de aspecto (convert 
 ctorrent, aria2c, transmission-cli, peerflix
 --------------------------------------------
 
-Descargar torrents o enlaces magnéticos de manera rápida (salir: Ctrl + C):
+Descargar torrents:
 
-`ctorrent archivo.torrent` `aria2c "magnet:enlace"`
+`ctorrent archivo.torrent`
+
+O enlaces magnéticos de manera rápida (salir: Ctrl + C):
+
+`aria2c "magnet:enlace"`
 
 Si quisieran limitar velocidades de descarga (-d) o subida (-u) en KB/s:
 
@@ -191,11 +275,17 @@ touch, mkdir, file
 
 Para crear varios archivos a la vez:
 
-`touch archivo01.txt archivo02.txt` `touch archivo{01..10}.txt` `touch archivo{01,02,03}.txt`
+`touch archivo01.txt archivo02.txt` 
+
+`touch archivo{01..10}.txt` 
+
+`touch archivo{01,02,03}.txt`
 
 Y crear varias carpetas:
 
-`mkdir carpeta01 carpeta02` `mkdir carpeta{01..10}`
+`mkdir carpeta01 carpeta02` 
+
+`mkdir carpeta{01..10}`
 
 Ver descripción de todos los tipos de archivos en un directorio:
 
@@ -204,88 +294,212 @@ Ver descripción de todos los tipos de archivos en un directorio:
 7z, zip, unzip
 --------------
 
-Para comprimir, y descomprimir cualquier compresor de archivo:
+Para comprimir:
 
-`7z a comprimir.rar archivos` `7z x descomprimir.rar`
+`7z a comprimir.rar archivos` 
 
-Y si solo usas [Zip](https://web.archive.org/web/20200901184022/https://es.wikipedia.org/wiki/Formato_de_compresi%C3%B3n_ZIP), también se puede esto:
+Y descomprimir cualquier compresor de archivo:
 
-`zip comprimir.zip archivos` `unzip descomprimir.zip`
+`7z x descomprimir.rar`
+
+Y si solo usas [Zip](https://web.archive.org/web/20200901184022/https://es.wikipedia.org/wiki/Formato_de_compresi%C3%B3n_ZIP):
+
+`zip comprimir.zip archivos` 
+
+Descomprimir Zip:
+
+`unzip descomprimir.zip`
 
 grep
 ----
 
-Localiza palabra dentro de un archivo. O localizar frases dentro de un archivo. También localizar palabra al interior de todos los archivos del actual directorio:
+Localiza palabra dentro de un archivo:
 
-`grep palabra archivo` `grep 'frase larga' archivo` `grep palabra *`
+`grep palabra archivo` 
 
-Localiza dos o más palabras dentro de un archivo (-e). También buscar palabras incluidas con mayúsculas (-i). O mostrar las filas de texto bajo palabra, por ejemplo 5 filas (-A). O mostrar las 3 filas arriba de palabra (-B):
+O localizar frases dentro de un archivo:
 
-`grep -e palabra1 -e palabra2 archivo` `grep -i palabra archivo` `grep palabra -A 5 archivo` `grep palabra -B 3 archivo`
+`grep 'frase larga' archivo` 
 
-Localiza recursivamente palabra en carpeta con archivos (-r). O localiza palabra de otro comando:
+También localizar palabra al interior de todos los archivos del actual directorio:
 
-`grep -r palabra /carpeta` `history | grep palabra`
+`grep palabra *`
+
+Localiza dos o más palabras dentro de un archivo (-e):
+
+`grep -e palabra1 -e palabra2 archivo` 
+
+También buscar palabras incluidas con mayúsculas (-i):
+
+`grep -i palabra archivo` 
+
+O mostrar las filas de texto bajo palabra, por ejemplo 5 filas (-A):
+
+`grep palabra -A 5 archivo` 
+
+O mostrar las 3 filas arriba de palabra (-B):
+
+`grep palabra -B 3 archivo`
+
+Localiza recursivamente palabra en carpeta con archivos (-r):
+
+`grep -r palabra /carpeta` 
+
+O localiza palabra de otro comando:
+
+`history | grep palabra`
 
 Mostrar solamente la URL de todas las imágenes JPG de un archivo fuente u HTML:
 
-`grep -o -i 'https:[^>]*.jpg'`
+`grep -o -i 'https:[^>]*.jpg' archivo.html`
 
 sed
 ---
 
-Reemplazar palabra o carácter en un archivo de texto, y el resultado en archivo2. O reemplazar varias palabras a la vez:
+Reemplazar palabra o carácter en un archivo de texto, y el resultado en archivo2:
 
-`sed 's/vieja/nueva/g' archivo > archivo2` `sed 's/vieja/nueva/g ; s/vieja2/nueva2/g' archivo > archivo2`
+`sed 's/vieja/nueva/g' archivo > archivo2` 
 
-Si el texto tuviera barras diagonales "/", se pueden usar barras verticales o diagonales invertidas "| \\" como reemplazo, por ejemplo para borrar todas las cursivas "<i> y </i>" dentro de un subtitulo. Y usando diagonales invertidas:
+O reemplazar varias palabras a la vez:
 
-`sed 's|<i>||g ; s|</i>||g' sub.srt > sub2.srt` `sed 's\vieja\nueva\g' archivo > archivo2`
+`sed 's/vieja/nueva/g ; s/vieja2/nueva2/g' archivo > archivo2`
 
-Útil para eliminar lineas, por ejemplo borrar las 4 primeras lineas (1,4d). Borrar las lineas que contengan palabra (/d). O dejar las lineas que contengan palabra (/!d). Y borrar la última linea ($d):
+Si el texto tuviera barras diagonales "/", se pueden usar barras verticales o diagonales invertidas "| \\" como reemplazo, por ejemplo para borrar todas las cursivas "<i> y </i>" dentro de un subtitulo:
 
-`sed '1,4d' archivo > archivo2` `sed '/palabra/d' archivo > archivo2` `sed '/palabra/!d' archivo > archivo2` `sed '$d' archivo > archivo2`
+`sed 's|<i>||g ; s|</i>||g' sub.srt > sub2.srt` 
 
-O también mostrar una linea completa junto con cat, por ejemplo la 4ta linea (-n 4p). Mostrar lineas por separado, lineas 2 y 6 (2p ; 6p). Si quisiéramos cambiar palabra solo en la 3ra linea (3s). También agregar una linea en la 5ta linea y empujar las demás hacia abajo (5i). O reemplazar todo el texto de la 6ta linea (6c). Y agregar una nueva linea después la 7ma linea, creando una nueva 8va linea (7a):
+Y usando diagonales invertidas:
 
-`cat archivo | sed -n '4p'` `sed -n '2p ; 6p' archivo > archivo 2` `sed '3s/vieja/nueva/g' archivo > archivo2` `sed '5i\Linea agregada' archivo > archivo2` `sed '6c\Linea reemplazada' archivo > archivo2` `sed '7a\Linea agregada después' archivo > archivo2`
+`sed 's\vieja\nueva\g' archivo > archivo2`
 
-Para sobreescribir el mismo archivo sin crear otro archivo usen -i. Y si quieren sumar diferentes ordenes usen -e:
+Útil para eliminar lineas, por ejemplo borrar las 4 primeras lineas (1,4d):
 
-`sed -i '1d' archivo` `sed -e '1c\Linea reemplazada' -e '2i\Linea agregada' archivo > archivo2`
+`sed '1,4d' archivo > archivo2` 
 
-Pegar la 1ra linea con la 2da linea, y así consecutivamente en par, la 3ra con la 4ta, la 5ta con la 6ta, etc. Agregar palabra al inicio de cada linea (s/^). O agregar palabra al final de cada linea (s/$). Agregar una linea al final, la cola del archivo ($a). Y dar saltos de linea (creando una nueva linea) cada vez que se tope con el carácter de doble comillas " (también puede ser otro carácter):
+Borrar las lineas que contengan palabra (/d):
 
-`sed 'N;s/\n/ /' archivo > archivo2` `sed 's/^/palabra/' archivo > archivo2` `sed 's/$/palabra/' archivo > archivo2` `sed '$a\Linea al final' archivo > archivo2` `sed 's/"/\n/g' archivo > archivo2`
+`sed '/palabra/d' archivo > archivo2` 
+
+O dejar las lineas que contengan palabra (/!d):
+
+`sed '/palabra/!d' archivo > archivo2` 
+
+Y borrar la última linea ($d):
+
+`sed '$d' archivo > archivo2`
+
+O también mostrar una linea completa junto con cat, por ejemplo la 4ta linea (-n 4p):
+
+`cat archivo | sed -n '4p'` 
+
+Mostrar lineas por separado, lineas 2 y 6 (2p ; 6p):
+
+`sed -n '2p ; 6p' archivo > archivo 2` 
+
+Si quisiéramos cambiar palabra solo en la 3ra linea (3s):
+
+`sed '3s/vieja/nueva/g' archivo > archivo2` 
+
+También agregar una linea en la 5ta linea y empujar las demás hacia abajo (5i):
+
+`sed '5i\Linea agregada' archivo > archivo2` 
+
+O reemplazar todo el texto de la 6ta linea (6c):
+
+`sed '6c\Linea reemplazada' archivo > archivo2` 
+
+Y agregar una nueva linea después la 7ma linea, creando una nueva 8va linea (7a):
+
+`sed '7a\Linea agregada después' archivo > archivo2`
+
+Para sobreescribir el mismo archivo sin crear otro archivo usen -i:
+
+`sed -i '1d' archivo` 
+
+Y si quieren sumar diferentes ordenes usen -e:
+ 
+`sed -e '1c\Linea reemplazada' -e '2i\Linea agregada' archivo > archivo2`
+
+Pegar la 1ra linea con la 2da linea, y así consecutivamente en par, la 3ra con la 4ta, la 5ta con la 6ta, etc:
+
+`sed 'N;s/\n/ /' archivo > archivo2` 
+
+Agregar palabra al inicio de cada linea (s/^):
+
+`sed 's/^/palabra/' archivo > archivo2` 
+
+O agregar palabra al final de cada linea (s/$):
+
+`sed 's/$/palabra/' archivo > archivo2` 
+
+ Agregar una linea al final, la cola del archivo ($a):
+ 
+`sed '$a\Linea al final' archivo > archivo2` 
+
+ Y dar saltos de linea (creando una nueva linea) cada vez que se tope con el carácter de doble comillas " (también puede ser otro carácter):
+ 
+`sed 's/"/\n/g' archivo > archivo2`
 
 cut
 ---
 
-Para seleccionar cantidad de caracteres a mostrar, por ejemplo que muestre solo desde el carácter 5 al 10 en todas las lineas del archivo (5-10). También que muestre desde el carácter 5 en adelante en cada línea (5-). Que muestre solo los primeros 3 caracteres (-3). O sumar dos sentencias, la primera hasta el carácter 5 y la segunda desde el carácter 20 (-5,20-):
+Para seleccionar cantidad de caracteres a mostrar, por ejemplo que muestre solo desde el carácter 5 al 10 en todas las lineas del archivo (5-10):
 
-`cut -c 5-10 archivo` `cut -c 5- archivo` `cut -c -3 archivo` `cut -c -5,20-`
+`cut -c 5-10 archivo` 
+
+También que muestre desde el carácter 5 en adelante en cada línea (5-):
+
+`cut -c 5- archivo` 
+
+Que muestre solo los primeros 3 caracteres (-3):
+
+`cut -c -3 archivo` 
+
+O sumar dos sentencias, la primera hasta el carácter 5 y la segunda desde el carácter 20 (-5,20-):
+
+`cut -c -5,20-`
 
 Es útil usando grep si hay demasiado texto y solo queremos pocas lineas:
 
 `grep palabra archivo | cut -c 5-10`
 
-Se pueden usar delimitadores, por ejemplo hasta la coma ',' (también se pueden otros / | # @, etc). Mostrar solo la 4ta oración después de la coma (-f 4). O mostrar solo la 4ta y 6ta oración después de la coma (-f 4,6). O mostrar la 4ta oración e incluir todo lo que aparezca entre medio con la 6ta oración (-f 4-6):
+Se pueden usar delimitadores, por ejemplo hasta la coma ',' (también se pueden otros / | # @, etc). Mostrar solo la 4ta oración después de la coma (-f 4):
 
-`cut -d ',' -f 4 archivo` `cut -d ',' -f 4,6 archivo` `cut -d ',' -f 4-6 archivo`
+`cut -d ',' -f 4 archivo` 
+
+O mostrar solo la 4ta y 6ta oración después de la coma (-f 4,6):
+
+`cut -d ',' -f 4,6 archivo` 
+
+O mostrar la 4ta oración e incluir todo lo que aparezca entre medio con la 6ta oración (-f 4-6):
+
+`cut -d ',' -f 4-6 archivo`
 
 head, tail
 ----------
 
-Con head se pueden ver las primeras lineas de un texto, digamos las 3 primeras lineas (-n 3). Con tail se pueden ver las últimas lineas, digamos las 2 últimas lineas (-n 2). O simplemente mostrar las últimas lineas (10 por defecto) de otro comando:
+Con head se pueden ver las primeras lineas de un texto, digamos las 3 primeras lineas (-n 3):
 
-`head -n 3 archivo` `tail -n 2 archivo` `history | tail`
+`head -n 3 archivo` 
+
+Con tail se pueden ver las últimas lineas, digamos las 2 últimas lineas (-n 2):
+
+`tail -n 2 archivo` 
+
+O simplemente mostrar las últimas lineas (10 por defecto) de otro comando:
+
+`history | tail`
 
 find, locate
 ------------
 
-Encuentra archivos y carpetas en cualquier directorio recursivamente (/ruta -name). O buscar un tipo de archivo determinado en el directorio actual recursivamente (. -name):
+Encuentra archivos y carpetas en cualquier directorio recursivamente (/ruta -name):
 
-`find /ruta -name palabra` `find . -name *.jpg`
+`find /ruta -name palabra` 
+
+O buscar un tipo de archivo determinado en el directorio actual recursivamente (. -name):
+
+`find . -name *.jpg`
 
 Busca archivos por el sistema mostrando todas sus rutas:
 
@@ -294,13 +508,25 @@ Busca archivos por el sistema mostrando todas sus rutas:
 nano, echo, cat, alias
 ----------------------
 
-El editor de texto fácil y entendible, solo para crear un archivo y ponerse a escribir (Guardar: Ctrl + O. Salir: Ctrl + X). O lee y edita el código HTML de un sitio:
+El editor de texto fácil y entendible, solo para crear un archivo y ponerse a escribir (Guardar: Ctrl + O. Salir: Ctrl + X):
 
-`nano archivo` `` nano *.html `wget www.web.com` ``
+`nano archivo` 
 
-Para crear y agregar más texto a una nota/archivo (para reemplazar todo lo escrito solo usa una flecha: >). Y cat para mostrar texto de archivos directo en la terminal. O también enumerar las lineas de un texto (-n):
+O lee y edita el código HTML de un sitio:
+ 
+`` nano *.html `wget www.web.com` ``
 
-`echo "Texto" >> notas` `cat archivo` `cat -n archivo`
+Para crear y agregar más texto a una nota/archivo (para reemplazar todo lo escrito solo usa una flecha: >):
+
+`echo "Texto" >> notas` 
+
+Y cat para mostrar texto de archivos directo en la terminal:
+
+`cat archivo` 
+
+O también enumerar las lineas de un texto (-n):
+
+`cat -n archivo`
 
 Útil para dar un nombre corto a comandos muy largos, y ser usado después (pueden guardar manualmente sus alias creando el archivo ~/.bash\_aliases
 
@@ -316,53 +542,99 @@ Permite cambiar la [codificación de caracteres](https://web.archive.org/web/202
 rm, trash-cli
 -------------
 
-Para eliminar definitivamente varios archivos que terminen o empiecen con la misma palabra. O borrar todos los archivos en el directorio actual (sin tocar las carpetas). O solo con extensiones especificas:
+Para eliminar definitivamente varios archivos que terminen o empiecen con la misma palabra:
 
-`rm *rchivo archiv*` `rm *` `rm *.jpg`
+`rm *rchivo archiv*` 
+
+O borrar todos los archivos en el directorio actual (sin tocar las carpetas):
+
+`rm *` 
+
+O solo con extensiones especificas:
+
+`rm *.jpg`
 
 Para eliminar una carpeta se debe hacer recursivamente (-r). También eliminar todas las carpetas y archivos sueltos sin indicar nombres en el directorio actual (-r \*):
 
 `rm -r carpeta` `rm -r *`
 
-Mandar archivos a la papelera (trash). Ver lo que hay en la papelera (trash-list). Y eliminar definitivamente lo que hay en la papelera (trash-empty):
+Mandar archivos a la papelera (trash):
 
-`trash archivo` `trash-list` `trash-empty`
+`trash archivo` 
+
+Ver lo que hay en la papelera (trash-list):
+
+`trash-list` 
+
+Y eliminar definitivamente lo que hay en la papelera (trash-empty):
+ 
+`trash-empty`
 
 cp, gcp
 -------
 
-Copia archivos rápidamente dentro del sistema o otros dispositivos ([cp es más rápido que rsync](https://web.archive.org/web/20200901184022/https://cont3mpo.github.io/post/2015/respaldando-rsync-cp-pv.html), pero sin información de transferencias y copia archivos aunque existan en destino). También copia recursivamente carpetas (-r). Y copiar todo el contenido del actual directorio:
+Copia archivos rápidamente dentro del sistema o otros dispositivos ([cp es más rápido que rsync](https://web.archive.org/web/20200901184022/https://cont3mpo.github.io/post/2015/respaldando-rsync-cp-pv.html), pero sin información de transferencias y copia archivos aunque existan en destino):
 
-`cp archivo /destino` `cp -r carpeta /destino` `cp -r * /destino`
+`cp archivo /destino` 
 
-Acá tenemos a gcp que se comporta igual que cp, pero con información de transferencias. Y copia recursivamente:
+También copia recursivamente carpetas (-r):
 
-`gcp archivo /destino` `gcp -r carpeta /destino`
+`cp -r carpeta /destino` 
+
+Y copiar todo el contenido del actual directorio:
+
+`cp -r * /destino`
+
+Acá tenemos a gcp que se comporta igual que cp, pero con información de transferencias:
+
+`gcp archivo /destino` 
+
+Y copia recursivamente:
+
+`gcp -r carpeta /destino`
 
 pv, bar
 -------
 
 Con pv y bar se puede ver información de transferencia (aunque no están hechos para copiar, se usa casi igual), pero hay que poner el nombre del destinatario, no solo la ruta:
 
-`pv archivo > /destino/archivo` `bar archivo > /destino/archivo`
+`pv archivo > /destino/archivo` 
+
+`bar archivo > /destino/archivo`
 
 mv, mmv
 -------
 
-Para renombrar un archivo. O mover archivos de lugar:
+Para renombrar un archivo:
 
-`mv viejo nuevo` `mv origen /destino`
+`mv viejo nuevo` 
 
-Renombrar archivos masivamente (conservando extensión). Renombrar extensión masivamente (de .jpg a .png). Poner extensión a archivos sin extensión (a .txt):
+O mover archivos de lugar:
 
-`mmv "viejos*" "nuevos#1"` `mmv "*.jpg" "#1.png"` `mmv "archivos*" "archivos#1.txt"`
+`mv origen /destino`
+
+Renombrar archivos masivamente (conservando extensión):
+
+`mmv "viejos*" "nuevos#1"` 
+
+Renombrar extensión masivamente (de .jpg a .png):
+
+`mmv "*.jpg" "#1.png"` 
+
+Poner extensión a archivos sin extensión (a .txt):
+
+`mmv "archivos*" "archivos#1.txt"`
 
 pycp, pymv
 ----------
 
-Lo mismo que cp (aunque [es más lento que cp](https://web.archive.org/web/20200901184022/https://cont3mpo.github.io/post/2015/respaldando-rsync-cp-pv.html)) y mv, pero con una barra de progreso e información de transferencia (instala python-pip, y luego: sudo pip install pycp):
+Lo mismo que cp (aunque [es más lento que cp](https://web.archive.org/web/20200901184022/https://cont3mpo.github.io/post/2015/respaldando-rsync-cp-pv.html)):
 
-`pycp archivo /destino` `pymv archivo /destino`
+`pycp archivo /destino` 
+
+Y pymv, pero con una barra de progreso e información de transferencia (instala python-pip, y luego: sudo pip install pycp):
+
+`pymv archivo /destino`
 
 Si están transfiriendo una carpeta con muchos archivos usen -g para que aparezca una sola barra y no múltiples (no necesita opción de recursiva):
 
@@ -371,39 +643,83 @@ Si están transfiriendo una carpeta con muchos archivos usen -g para que aparezc
 cd
 --
 
-Con cd se pueden escalar directorios. También ir a uno nuevo, como raíz (/). O ir al home (~), también se vuelve al home simplemente escribiendo solo cd. Y retroceder un nivel:
+Con cd se pueden escalar directorios:
 
-`cd directorio` `cd /` `cd ~` `cd ..`
+`cd directorio` 
+
+ También ir a uno nuevo, como raíz (/):
+ 
+`cd /` 
+
+O ir al home (~), también se vuelve al home simplemente escribiendo solo cd:
+
+`cd ~` 
+
+Y retroceder un nivel:
+
+`cd ..`
 
 ls, wc
 ------
 
-Para ver el tamaño de los archivos (-sh). Ver los permisos/dueños (-l). Y ver todos los archivos ocultos (-a) (se pueden combinar):
+Para ver el tamaño de los archivos (-sh):
 
-`ls -sh` `ls -l` `ls -a`
+`ls -sh` 
 
-Localizar archivo que comience con una palabra. O mostrar solo con extensión .jpg. También que muestre solo con algunas extensiones (\*.{jpg,gif,png}).
+Ver los permisos/dueños (-l):
 
-`ls archiv*` `ls *.jpg` `ls *.{jpg,gif,png}`
+`ls -l` 
 
-Combinando ls + wc se puede contar la cantidad de archivos y carpetas de un directorio. Y que también sume los archivos ocultos (-A) recursivamente en las demás carpetas (-R):
+Y ver todos los archivos ocultos (-a) (se pueden combinar):
 
-`ls | wc -l` `ls -AR | wc -l`
+`ls -a`
 
-Listar y usar grep para mostrar solo los archivos que usen esa palabra. Y recursivamente (-R):
+Localizar archivo que comience con una palabra:
 
-`ls | grep palabra` `ls -R | grep *.jpg`
+`ls archiv*` 
+
+O mostrar solo con extensión .jpg:
+
+`ls *.jpg` 
+
+También que muestre solo con algunas extensiones (\*.{jpg,gif,png}):
+
+`ls *.{jpg,gif,png}`
+
+Combinando ls + wc se puede contar la cantidad de archivos y carpetas de un directorio:
+
+`ls | wc -l` 
+
+Y que también sume los archivos ocultos (-A) recursivamente en las demás carpetas (-R):
+
+`ls -AR | wc -l`
+
+Listar y usar grep para mostrar solo los archivos que usen esa palabra:
+
+`ls | grep palabra` 
+
+Y recursivamente (-R):
+
+`ls -R | grep *.jpg`
 
 du
 --
 
-Con du se puede ver el peso de todos los directorios de una carpeta (-sh \*). O el peso total del directorio actual (-sh):
+Con du se puede ver el peso de todos los directorios de una carpeta (-sh \*):
 
-`du -sh *` `du -sh`
+`du -sh *` 
 
-Con sort se puede listar el peso de menor a mayor (al revés: -hr). O ver el peso que ocupa de cada app en el disco en macOS:
+O el peso total del directorio actual (-sh):
 
-`du -sh * | sort -h` `du -sh /Applications/*`
+`du -sh`
+
+Con sort se puede listar el peso de menor a mayor (al revés: -hr):
+
+`du -sh * | sort -h` 
+
+O ver el peso que ocupa de cada app en el disco en macOS:
+
+`du -sh /Applications/*`
 
 ncdu
 ----
@@ -415,42 +731,68 @@ Muy parecido a du pero navegable a través de los directorios:
 tree
 ----
 
-Permite ver el árbol de los directorios que se encuentran dentro. Y mostrar un tipo de archivo predeterminado (-P):
+Permite ver el árbol de los directorios que se encuentran dentro:
 
-`tree -d directorio` `tree -P *.jpg directorio`
+`tree -d directorio` 
+
+Y mostrar un tipo de archivo predeterminado (-P):
+
+`tree -P *.jpg directorio`
 
 chmod, chown
 ------------
 
-Modificar permisos de un archivo (u: usuario, g: grupo, o: otros, a: todos, r: leer, w: escribir, x: ejecutar), con signo "+" sumas permisos, con signo "-" quitas permisos ([guía extensa](https://web.archive.org/web/20200901184022/https://cont3mpo.github.io/post/2009/permisos-de-usuario-en-linux.html)). Y cambiar al dueño de un archivo (chown):
+Modificar permisos de un archivo (u: usuario, g: grupo, o: otros, a: todos, r: leer, w: escribir, x: ejecutar), con signo "+" sumas permisos, con signo "-" quitas permisos ([guía extensa](https://web.archive.org/web/20200901184022/https://cont3mpo.github.io/post/2009/permisos-de-usuario-en-linux.html)):
 
-`chmod ugoa+rwx archivo` `chown usuario:usuario archivo`
+`chmod ugoa+rwx archivo` 
+
+Y cambiar al dueño de un archivo (chown):
+
+`chown usuario:usuario archivo`
 
 apt
 ---
 
-El poderoso APT que desde la [versión 1.0](https://web.archive.org/web/20200901184022/https://mvogt.wordpress.com/2014/04/04/apt-1-0/) puede usar también 'apt orden'. Para sistemas basados en Debian, como [Ubuntu](https://web.archive.org/web/20200901184022/https://cont3mpo.github.io/post/2013/el-futuro-unificado-de-ubuntu.html) 14.04 LTS y [elementary OS Freya](https://web.archive.org/web/20200901184022/https://cont3mpo.github.io/post/2014/probando-elementary-os-freya-beta.html). Para actualizar la lista de software (update). Y actualizar sistema (upgrade):
+El poderoso APT que desde la [versión 1.0](https://web.archive.org/web/20200901184022/https://mvogt.wordpress.com/2014/04/04/apt-1-0/) puede usar también 'apt orden'. Para sistemas basados en Debian, como [Ubuntu](https://web.archive.org/web/20200901184022/https://cont3mpo.github.io/post/2013/el-futuro-unificado-de-ubuntu.html) 14.04 LTS y [elementary OS Freya](https://web.archive.org/web/20200901184022/https://cont3mpo.github.io/post/2014/probando-elementary-os-freya-beta.html). Para actualizar la lista de software (update):
 
-`sudo apt update` `sudo apt upgrade`
+`sudo apt update` 
 
-Instalar software (install). Y remover software (remove):
+Y actualizar sistema (upgrade):
 
-`sudo apt install nombre` `sudo apt remove nombre`
+`sudo apt upgrade`
 
-Buscar software (search). Y ver información de un paquete/app (show):
+Instalar software (install):
 
-`apt search nombre` `apt show nombre`
+`sudo apt install nombre` 
+
+Y remover software (remove):
+ 
+`sudo apt remove nombre`
+
+Buscar software (search):
+
+`apt search nombre` 
+
+Y ver información de un paquete/app (show):
+
+`apt show nombre`
 
 brew
 ----
 
-[Homebrew es usado solo en macOS](https://web.archive.org/web/20200901184022/https://cont3mpo.github.io/post/2015/os-x-y-homebrew.html). Puedes instalar, remover y mantener actualizadas tus apps CLI, y apps de interfaz que encuentres en sus repositorios
+[Homebrew es usado solo en macOS](https://web.archive.org/web/20200901184022/https://cont3mpo.github.io/post/2015/os-x-y-homebrew.html). Puedes instalar, remover y mantener actualizadas tus apps CLI:
 
-`brew install nombre` `brew-cask install nombre (apps gráficas)`
+`brew install nombre` 
+
+Y apps de interfaz que encuentres en sus repositorios:
+
+`brew-cask install nombre (apps gráficas)`
 
 Y mantener actualizado:
 
-`brew update` `brew upgrade`
+`brew update` 
+
+`brew upgrade`
 
 open
 ----
@@ -466,9 +808,13 @@ Para ver a todos los que están conectados a tu Red de Área Local (LAN), inclui
 
 `sudo nmap -sP 192.168.1.0/24`
 
-Con arp-scan se puede automatizar el proceso, mostrará las IPs y dirección de hardware de todos los demás conectados a la Red de Área Local. Y si estás en un notebook usa el Wi-Fi (wlan0):
+Con arp-scan se puede automatizar el proceso, mostrará las IPs y dirección de hardware de todos los demás conectados a la Red de Área Local:
 
-`sudo arp-scan -l` `sudo arp-scan -l -I wlan0`
+`sudo arp-scan -l` 
+
+Y si estás en un notebook usa el Wi-Fi (wlan0):
+
+`sudo arp-scan -l -I wlan0`
 
 nmcli, iwlist
 -------------
@@ -484,9 +830,13 @@ Para ver las señales Wi-Fi cercanas con información detallada:
 ifconfig, iwconfig, wavemon
 ---------------------------
 
-Para ver cuantos datos has descargado (RX) y subido (TX) a Internet desde que iniciaste la sesión actual. Por Ethernet (eth0) y Wi-Fi (wlan0):
+Para ver cuantos datos has descargado (RX) y subido (TX) a Internet desde que iniciaste la sesión actual:
 
-`ifconfig eth0 | grep Bytes` `ifconfig wlan0 | grep Bytes`
+`ifconfig eth0 | grep Bytes` 
+
+Por Ethernet (eth0) y Wi-Fi (wlan0):
+
+`ifconfig wlan0 | grep Bytes`
 
 Para ver la calidad de señal Wi-Fi actual (70 máx), y el nivel de señal [dBm](https://web.archive.org/web/20200901184022/http://es.wikipedia.org/wiki/DBm) (prueben acercándose y alejándose para ver como afecta):
 
@@ -499,9 +849,13 @@ Con wavemon se puede monitorear la intensidad de la señal Wi-Fi y otros datos e
 htop, iotop, pydf
 -----------------
 
-Con htop se puede monitorear el uso de procesos que están corriendo, también uso de [CPU](https://web.archive.org/web/20200901184022/https://es.wikipedia.org/wiki/Unidad_central_de_procesamiento), [RAM](https://web.archive.org/web/20200901184022/https://es.wikipedia.org/wiki/Memoria_de_acceso_aleatorio) y [Swap](https://web.archive.org/web/20200901184022/https://es.wikipedia.org/wiki/Espacio_de_intercambio) (los que utilizan más procesamiento aparecen en la cabecera). Y con iotop puedes ver que procesos están escribiendo y leyendo en tu disco:
+Con htop se puede monitorear el uso de procesos que están corriendo, también uso de [CPU](https://web.archive.org/web/20200901184022/https://es.wikipedia.org/wiki/Unidad_central_de_procesamiento), [RAM](https://web.archive.org/web/20200901184022/https://es.wikipedia.org/wiki/Memoria_de_acceso_aleatorio) y [Swap](https://web.archive.org/web/20200901184022/https://es.wikipedia.org/wiki/Espacio_de_intercambio) (los que utilizan más procesamiento aparecen en la cabecera):
 
-`htop` `sudo iotop`
+`htop` 
+
+Y con iotop puedes ver que procesos están escribiendo y leyendo en tu disco:
+
+`sudo iotop`
 
 Muy practico para estar al tanto de cuanto espacio estás ocupando o te queda en tus discos duros, particiones, pendrives o discos duros móviles:
 
@@ -510,9 +864,13 @@ Muy practico para estar al tanto de cuanto espacio estás ocupando o te queda en
 lm-sensors, hddtemp, acpi
 -------------------------
 
-Para ver la temperatura del procesador (Core son las CPU) (luego de instalar: sudo sensors-detect ; sudo service kmod start). Con hddtemp se monitorea la temperatura del disco duro:
+Para ver la temperatura del procesador (Core son las CPU) (luego de instalar: sudo sensors-detect ; sudo service kmod start):
 
-`sensors` `sudo hddtemp /dev/sda`
+`sensors` 
+
+Con hddtemp se monitorea la temperatura del disco duro:
+
+`sudo hddtemp /dev/sda`
 
 Y para monitorear cuanta batería queda o se está cargando en el notebook:
 
@@ -529,9 +887,13 @@ Ver la RAM real en uso y que está libre:
 
 `free -h | grep -e usado -e cache`
 
-Con ps se puede ver la lista de todos los procesos que están corriendo y el usuario que los usa. O buscar el nombre de un proceso corriendo:
+Con ps se puede ver la lista de todos los procesos que están corriendo y el usuario que los usa:
 
-`ps aux` `ps x | grep -i nombreapp`
+`ps aux` 
+
+O buscar el nombre de un proceso corriendo:
+
+`ps x | grep -i nombreapp`
 
 Para información en un-solo-lugar de uso de cpu, ram, swap, red, procesos, instala [Glances](https://web.archive.org/web/20200901184022/http://askubuntu.com/a/293447).
 
@@ -542,9 +904,13 @@ Parecido a pydf, pero muestra la jerarquía de las particiones, y puede ver los 
 
 `lsblk`
 
-Con mount se puede montar el dispositivo (pendrive, disco duro portátil) al ver donde está con lsblk, y con umount se puede desmontar para desconectar:
+Con mount se puede montar el dispositivo (pendrive, disco duro portátil) al ver donde está con lsblk:
 
-`sudo mount /dev/sdb1 /media/usuario/` `sudo umount /media/usuario/`
+`sudo mount /dev/sdb1 /media/usuario/` 
+
+Y con umount se puede desmontar para desconectar:
+
+`sudo umount /media/usuario/`
 
 lspci, lshw
 -----------
@@ -553,16 +919,24 @@ Para ver el tipo de [GPU](https://web.archive.org/web/20200901184022/https://es.
 
 `lspci | grep -e VGA -e Wireless`
 
-Ver cada parte de todo el hardware, su fabricante y modelos en detalle. También ver solo información del procesador:
+Ver cada parte de todo el hardware, su fabricante y modelos en detalle:
 
-`sudo lshw` `sudo lshw | grep CPU -A 12`
+`sudo lshw` 
+
+También ver solo información del procesador:
+
+`sudo lshw | grep CPU -A 12`
 
 speedometer, speedtest-cli
 --------------------------
 
-Para monitorear la velocidad en la conexión, en descarga (-r) y subida (-t), en un gráfico (Wi-Fi: wlan0):
+Para monitorear la velocidad en la conexión, en descarga (-r):
 
-`speedometer -r eth0` `speedometer -t eth0`
+`speedometer -r eth0` 
+
+Y subida (-t), en un gráfico (Wi-Fi: wlan0):
+
+`speedometer -t eth0`
 
 Con [speedtest-cli](https://web.archive.org/web/20200901184022/https://github.com/sivel/speedtest-cli) se realizan test de velocidad de descarga y subida (instala python-pip, y luego: sudo pip install speedtest-cli):
 
@@ -571,16 +945,28 @@ Con [speedtest-cli](https://web.archive.org/web/20200901184022/https://github.co
 ping
 ----
 
-Ver si hay perdida de paquetes en una conexión inestable, y cuanto se demoran los paquetes en milisegundos para ir y volver (salir: Ctrl + C). O transmitir una cantidad de paquetes predeterminada (-c):
+Ver si hay perdida de paquetes en una conexión inestable, y cuanto se demoran los paquetes en milisegundos para ir y volver (salir: Ctrl + C):
 
-`ping www.google.com` `ping -c 5 www.google.com`
+`ping www.google.com` 
+
+O transmitir una cantidad de paquetes predeterminada (-c):
+
+`ping -c 5 www.google.com`
 
 whoami, who, pwd
 ----------------
 
-Con whoami se puede ver el nombre del usuario actual. Con who se ven los todos los usuarios conectados. Y pwd muestra la ruta completa del directorio actual:
+Con whoami se puede ver el nombre del usuario actual:
 
-`whoami` `who` `pwd`
+`whoami` 
+
+Con who se ven los todos los usuarios conectados:
+
+`who` 
+
+Y pwd muestra la ruta completa del directorio actual:
+
+`pwd`
 
 tcpdump, whois, host
 --------------------
@@ -589,23 +975,35 @@ Para monitorear todo lo que pasa por el puerto 80 [TCP](https://web.archive.org/
 
 `sudo tcpdump tcp port 80`
 
-Para ver información de dueño del dominio, servidores, y creación del dominio. Y host puede ver la [IP](https://web.archive.org/web/20200901184022/https://es.wikipedia.org/wiki/Direcci%C3%B3n_IP) del dominio:
+Para ver información de dueño del dominio, servidores, y creación del dominio:
 
-`whois web.com` `host web.com`
+`whois web.com` 
+
+Y host puede ver la [IP](https://web.archive.org/web/20200901184022/https://es.wikipedia.org/wiki/Direcci%C3%B3n_IP) del dominio:
+
+`host web.com`
 
 traceroute, dig
 ---------------
 
 Muestra la ruta de viaje de un dominio a través de servidores:
 
-`traceroute google.cl` Ve información de un domino DNS: `dig google.cl`
+`traceroute google.cl` 
+
+Ve información de un domino DNS: 
+
+`dig google.cl`
 
 tshark
 ------
 
-O mejor conocido como [Wireshark](https://web.archive.org/web/20200901184022/https://es.wikipedia.org/wiki/Wireshark). Sirve para monitorear el tráfico de conexiones. Primero hay que ver el nombre de las interfaces disponibles (-D), y luego monitorear esa conexión con su nombre (-i):
+O mejor conocido como [Wireshark](https://web.archive.org/web/20200901184022/https://es.wikipedia.org/wiki/Wireshark). Sirve para monitorear el tráfico de conexiones. Primero hay que ver el nombre de las interfaces disponibles (-D):
 
-`sudo tshark -D` `sudo tshark -i en0`
+`sudo tshark -D` 
+
+Y luego monitorear esa conexión con su nombre (-i):
+
+`sudo tshark -i en0`
 
 sleep, notify-send, date
 ------------------------
@@ -628,9 +1026,17 @@ Con alsamixer se pueden controlar los niveles de audio de los altavoces, micróf
 xkill, killall, kill
 --------------------
 
-Las tres formas de matar o cerrar a la fuerza apps/procesos. Con xkill se apunta con el cursor a la ventana y la mata. Con killall hay que escribir el nombre de la app. Con kill se escribe el PID de la app, que se obtiene con "ps x | grep -i nombreapp":
+Las tres formas de matar o cerrar a la fuerza apps/procesos. Con xkill se apunta con el cursor a la ventana y la mata:
 
-`xkill` `killall nombre` `kill pidapp`
+`xkill` 
+
+Con killall hay que escribir el nombre de la app:
+
+`killall nombre` 
+
+Con kill se escribe el PID de la app, que se obtiene con "ps x | grep -i nombreapp":
+
+`kill pidapp`
 
 Pueden seguir viendo [algunas recomendaciones en Reddit](https://web.archive.org/web/20200901184022/http://www.reddit.com/r/linux/comments/eizx9/top_linux_commands_every_linux_user_should_know/) y visitar [/r/commandline](https://web.archive.org/web/20200901184022/http://www.reddit.com/r/commandline), ver un [indice de comandos](https://web.archive.org/web/20200901184022/http://ss64.com/bash/) útiles, leer [sus manuales](https://web.archive.org/web/20200901184022/http://www.die.net/) o de [otros manuales de Ubuntu](https://web.archive.org/web/20200901184022/http://manpages.ubuntu.com/), o ir [aprendiendo más detalladamente](https://web.archive.org/web/20200901184022/http://linuxcommand.org/lc3_learning_the_shell.php). También pueden empezar creando [shell scripts básicos](https://web.archive.org/web/20200901184022/http://cont3mpo.blogspot.com/2009/09/interpretar-ordenes-shell-script.html) y ver comandos más complejos en [Commandlinefu](https://web.archive.org/web/20200901184022/http://www.commandlinefu.com/). O leer en linea el libro [Conquering the Command Line](https://web.archive.org/web/20200901184022/http://conqueringthecommandline.com/book). También una [Introducción a Unix](https://web.archive.org/web/20200901184022/http://www.oliverelliott.org/article/computing/tut_unix/), y [100 comandos útiles](https://web.archive.org/web/20200901184022/http://www.oliverelliott.org/article/computing/ref_unix/).
 
