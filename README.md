@@ -77,10 +77,6 @@ O con letras:
 curl
 ----
 
-Se puede subir cualquier tipo de archivo a [transfer.sh](https://web.archive.org/web/20200901184022/https://transfer.sh/), un sitio que almacena por 2 semanas archivos de hasta 5GB (la URL de descarga aparecerá automáticamente):
-
-`curl -T archivo https://transfer.sh`
-
 Bajar archivos con curl:
 
 `curl -O www.web.com/archivo`
